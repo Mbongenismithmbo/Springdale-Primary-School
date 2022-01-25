@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maze game</title>
+    <link rel="stylesheet" href="Maze_game.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <style>
+    .btn {
+        background-color: rgb(255, 255, 255);
+        border: none;
+        color: rgb(219, 74, 74);
+        padding: 12px 16px;
+        font-size: 16px;
+        cursor: pointer;
+        position: fixed;
+        left: 0;
+        width: 70px;
+        height: 58px;
+        top: 5%;
+    }
+
+        /* Darker background on mouse-over */
+    .btn:hover {
+        background-color: rgb(99, 240, 71);
+    }
+    
+    </style>
+</head>
+
+<body>
+
+        <h1 style="font-family:cursive;"><i class="fa fa-gamepad fa-1x" aria-hidden="true"></i> Maze Game <i class="fa fa-gamepad fa-1x" aria-hidden="true"></i></h1>
+
+        <!--Button-->
+     <div class="button1">
+        <a id="Button" href="index.html"><button class="btn"><i class="fa fa-home fa-2x"></i></button></a>
+    </div>
+
+    <!--collapsible-Button-->
+
+    <div class="help-button">
+        <button type="button" class="collapsible"><i class="fa fa-question-circle fa-2x"></i></button>
+
+        <div class="content">
+            <p>Use cursor keys or buttons to move the marble,<br> And click on the marble when uve reached the goal<br> and move on to the next level </p>
+        </div>
+    </div>
+
+        <div id="game-container-1" class="game-container">
+            <div id="map-and-controls">
+                <div id="game-map-1" class="game-map">
+                    <div id="tiles" class="layer"></div>
+                    <div id="sprites" class="layer"></div>
+                    <div id="success-msg">Goal reached! Tap the maze to change levels.</div>
+                </div>
+            </div>
+        </div>
+
+     
+    
+
+  <!----- CONTROLS ----->
+
+        <div id="controls">
+            <button id="up"></button>
+
+            <div id="horiz">
+                <button id="left"></button>
+                <button id="right"></button>
+            </div>
+
+            <button id="down"></button>
+        </div>
+
+   
+ 
+    <script src="Maze_game.js"></script>
+
+    <script>
+        var coll = document.getElementsByClassName("collapsible");
+        var i;
+        
+        for (i = 0; i < coll.length; i++) {
+          coll[i].addEventListener("click", function() {
+            this.classList.toggle("active");
+            var content = this.nextElementSibling;
+            if (content.style.display === "block") {
+              content.style.display = "none";
+            } else {
+              content.style.display = "block";
+            }
+          });
+        }
+        </script>
+
+</body>
+</html>

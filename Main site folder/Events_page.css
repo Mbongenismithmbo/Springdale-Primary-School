@@ -1,0 +1,273 @@
+@import url('https://fonts.googleapis.com/css2?family=Cabin&family=Cairo:wght@300&family=Merriweather:wght@900&family=PT+Serif:ital@1&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /*font-family: "Quicksand", sans-serif;*/
+}
+html{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.content footer {
+    position: relative;
+    min-height: 25vh;
+  }
+
+/*----- HEADER -----*/
+
+.nav-bar{
+    display: flex;
+    height: 120px;
+    width: 100%;
+    background-color: rgb(226, 65, 65);
+    align-items: center;
+    justify-content: space-around;
+    position: fixed;
+    top: 0;
+    z-index: 999;
+}
+#logo{
+    height: 80px;
+}
+ul{
+    list-style-type: none;
+    display: flex;
+}
+ul li a{
+    text-decoration: none;
+    color: whitesmoke;
+    margin-left: 25px;
+}
+ul li a:hover{
+    color: black;
+    font-weight: bold;
+}
+/*----- END-HEADER -----*/
+
+  /*----- Pop-Out btn -----*/
+  .openBtn {
+    display: flex;
+    justify-content: left;
+}
+
+.openButton {
+    border: none;
+    border-radius: 5px;
+    background-color: #1c87c9;
+    color: white;
+    padding: 14px 20px;
+    cursor: pointer;
+    position: fixed;
+}
+
+.loginPopup {
+    position: relative;
+    text-align: center;
+    width: 100%;
+}
+
+.formPopup {
+    display: none;
+    position: fixed;
+    left: 75%;
+    top: 5%;
+    transform: translate(-50%, 5%);
+    border: 3px solid #999999;
+    z-index: 9;
+}
+
+.formContainer {
+    max-width: 300px;
+    padding: 20px;
+    background-color: #fff;
+}
+
+    .formContainer input[type=text],
+    .formContainer input[type=password] {
+        width: 100%;
+        padding: 15px;
+        margin: 5px 0 20px 0;
+        border: none;
+        background: #eee;
+    }
+
+        .formContainer input[type=text]:focus,
+        .formContainer input[type=password]:focus {
+            background-color: #ddd;
+            outline: none;
+        }
+
+    .formContainer .btn {
+        padding: 12px 20px;
+        border: none;
+        background-color: rgb(199, 43, 43);
+        color: #fff;
+        cursor: pointer;
+        width: 100%;
+        margin-bottom: 15px;
+        opacity: 0.8;
+    }
+
+    .formContainer .cancel {
+        background-color: red;
+    }
+
+    .formContainer .btn:hover,
+    .openButton:hover {
+        opacity: 1;
+    }
+/*----- End of Pop out btn-----*/
+
+
+/*----- IMAGES -----*/
+
+.w3-content img {
+    margin-top: 0px;
+}
+
+/*----- END-IMAGES -----*/
+
+/*----- CALENDAR -----*/
+
+.container {
+    width: 100%;
+    height: 100vh;
+    color: #eee;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -850px;
+    position: relative;
+    min-height: 100vh;
+}
+  
+.calendar {
+    width: 500px;
+    height: 560px;
+    background-color:rgba(255, 255, 255, 0.7);
+    box-shadow: 0 0.5rem 3rem rgba(0, 0, 0, 0.4);
+    border-radius: 10px;
+}
+  
+.month {
+    width: 100%;
+    height: 120px;
+    background-color: rgb(226, 65, 65);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    text-align: center;
+    text-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    font-size: 15px;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+}
+  
+.month i {
+    font-size: 25px;
+    cursor: pointer;
+}
+  
+.month h1 {
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 8px;
+    margin-bottom: 1rem;
+}
+  
+.month p {
+    font-size: 15px;
+}
+  
+.weekdays {
+    color: rgb(226, 65, 65);
+    width: 100%;
+    height: 80px;
+    padding: 0 6.4px;
+    display: flex;
+    align-items: center;
+    border: 6px solid rgb(226, 65, 65);
+}
+  
+.weekdays div {
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    width: calc(900px / 7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+  
+.days {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 3px;
+    height: 40px;
+}
+  
+.days div {
+    font-size: 18px;
+    color: rgb(226, 65, 65);
+    font-weight: 500;
+    margin: 4.8px;
+    width: calc(425px / 7);
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background-color 0.3s;
+}
+  
+.days div:hover:not(.today) {
+    border: 3px solid rgb(226, 65, 65);;
+    border-radius: 5px;
+    cursor: pointer;
+}
+  
+.prev-date,
+.next-date {
+    opacity: 0.5;
+} 
+.today {
+    background-color: rgba(0, 26, 255, 0.664);
+    border-radius: 5px;
+}
+/*----- END-CALENDAR -----*/
+
+/*----- FOOTER -----*/
+
+footer {
+    position: absolute;
+    bottom: 0;
+    margin-bottom: 0;
+    width: 100%;
+    height: 100px;
+    background-color: black;
+    color: white;
+    text-align: center;
+ }
+footer{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around; 
+}
+footer p{
+    font-size: 18px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    padding-top: 30px;
+    margin-left: -130px;
+}
+footer .image {
+    margin-top: 30px;
+  
+}
+footer button{
+    padding:10px;
+    margin-top: 30px;
+}
+/*----- END-FOOTER -----*/

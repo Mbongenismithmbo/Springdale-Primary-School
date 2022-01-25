@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            /*font-family: "Quicksand", sans-serif;*/
+        }
+        html{
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        .content footer {
+            position: relative;
+            min-height: 25vh;
+        }
+        .bg2 {
+            display: flex;
+            margin-top: -500px;
+            margin-left: auto;
+            margin-right: auto;
+            opacity: 0.2;
+        }
+        
+    /*----- HEADER -----*/
+
+        .nav-bar{
+            display: flex;
+            height: 120px;
+            width: 100%;
+            background-color: rgb(199, 43, 43);
+            align-items: center;
+            justify-content: space-around;
+            position: fixed;
+            top: 0;
+            z-index: 999;
+        }
+        #logo{
+            height: 80px;
+        }
+        ul{
+            list-style-type: none;
+            display: flex;
+        }
+        ul li a{
+            text-decoration: none;
+            color: whitesmoke;
+            margin-left: 25px;
+        }
+        ul li a:hover{
+            color: black;
+            font-weight: bold;
+        }
+    /*----- END-HEADER -----*/
+    /*----- CONTENT -----*/
+        .container1 {
+            margin-top: 125px;
+        }
+        .col-sm-4 {
+            text-align: center;
+        }
+        .container1 h1 {
+            text-align: center;
+            font-size: 50px;
+            padding: 20px;
+        }
+        .container1 p {
+            font-size: 20px;
+        }
+        
+        .container2 h2 {
+            text-align: center;
+            font-size: 50px;
+            padding: 20px;
+        }
+        .container2 p {
+            text-align: center;
+            font-size: 20px;
+        }
+    /*----- END-OF-CONTENT -----*/
+        
+    </style>
+
+  </head>
+  <body>
+
+    
+<!----- HEADER ----->
+
+<div class="content">
+
+    <  <div class="nav-bar">
+        <div id="logo"><a href="index.html"><img src="./images/logo.png" alt="logo" style="height: 79px;z-index: -1;"></a></div>
+        <ul>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="contact.html">COUNTACT</a></li>
+            <li><a href="curriculum.html">CURRICULUM</a></li>
+            <li><a href="Maze_game.html">GAME</a></li>
+        </ul>
+    </div>
+
+    <!--Login form section-->
+    <div class="loginPopup">
+        <div class="formPopup" id="popupForm">
+            <form name="popupForm" action="curriculum.html" class="formContainer" onSubmit="return validateForm();" method="post">
+                <h2>Please Log in</h2>
+                <label for="email">
+                    <strong>Username</strong>
+                </label>
+                <input type="text" id="email" placeholder="Your Username" name="email">
+                <label for="psw">
+                    <strong>Password</strong>
+                </label>
+                <input type="password" id="psw" placeholder="Your Password" name="psw">
+                <button type="submit" class="btn">Log in</button>
+                <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function validateForm() {
+            var username = document.popupForm.email.value;
+            var password = document.popupForm.psw.value;
+            
+            if (username.length == 0 && password.length != 0)//if the username is not entered 
+            {
+                alert("Login was unsuccessful, please enter your username");
+                return false;
+            }
+            if (password.length == 0 && username.length != 0)//if the password is not entered 
+            {
+                alert("Login was unsuccessful, please enter your password");
+                return false;
+            }
+            if (username.length == 0 && password.length == 0)//if both password & username are not entered 
+            {
+                alert("Login was unsuccessful, please enter your username and Password");
+                return false;
+            }
+            if (username.length != 6)//if username do not contain 6 characters 
+            {
+                alert("Login was unsuccessful, username must contain 6 characters");
+                return false;
+            }
+            if (password.length != 6)//if password do not contain 6 characters 
+            {
+                alert("Login was unsuccessful, password must contain 6 characters");
+                return false;
+            }
+            if (isNaN(username) && username.length == 6)//if username do not contain numeric values only
+            {
+                alert("Login was unsuccessful, please enter username that contains numeric values only");
+                return false;
+            }
+            if (password.length< 4)//if password contains less than 4 characters
+            {
+                alert("Login was unsuccessfully, please enter password that contains at least 4 characters");
+                return false;
+            }
+        
+            //if (!(/^[0-9a-zA-Z\s]+/i.test(username)) && username.length != 0 )//if username do not contain numeric values only
+            //{
+            //    alert("Login was unsuccessful, please enter username that contains numeric values only");
+            //    return false;
+            //}
+            else {
+                alert("you have logged in Successfully!");
+                return true;
+            }
+        }
+    </script>
+    <!--End of Login form section-->
+
+
+    <!--ABOUT US CONTENT-->
+
+        <div class="container1">
+            <div class="row padding">
+                <div class="col-sm-4">
+                    <h1 style="color: maroon;">About Springdale Primary School</h1>
+
+                    <p>WELCOME TO SPRINGDALE PRIMARY SCHOOL.<br>
+                        Principal contacts are Mr/Mrs VAN DER REDE with 36 Teachers and 1031 Students.
+                    </p>
+                    <p>Springdale Primary School is in the heart of Lentegeur, Mitchells Plain.<br> The school has played an educational and developmental role throughout generations in the community.<br> A space that promotes diversity and inclusivity, the school strives to be influential in the
+                        children<br> that they foster through their educational and sport programme.
+                    </p>    
+                </div>
+            </div>
+        </div>
+
+        <!--Two Column Section-->
+        <div class="container2">
+                
+            <h2 style="color: maroon;">Vision | Mission</h2>
+
+            <div class="box">
+                <p>We believe that a happy child is a successful one.<br> We are committed to providing a positive, safe and stimulating environment for children to learn, where all are valued.<br> We intend that all children should enjoy their learning, achieve their potential and become independent life-long learners.
+                </p>
+            </div>
+            <div class="box">
+                <p>To educate all students to the highest levels of academic achievement, to enable them to reach and expand their potential.<br> It prepares them to become productive, responsible, ethical, creative and compassionate members of society.
+                </p>
+            </div>
+               
+        </div>
+    </div>
+        <br>
+
+
+</div>
+<img src="images/logo2.png" class="bg2">
+  </body>
+</html>

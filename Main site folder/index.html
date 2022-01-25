@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet"  href="style2.css">
+    <script type="text/javascript" src="js/lightbox.js"></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+     <script  src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Cabin&family=Cairo:wght@300&family=Merriweather:wght@900&family=PT+Serif:ital@1&display=swap');
+
+        * {
+            padding: 0px;
+            margin: 0px;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+
+        .nav-bar {
+            display: flex;
+            height: 120px;
+            width: 100%;
+            background-color: rgb(226, 65, 65);
+            align-items: center;
+            justify-content: space-around;
+        }
+
+        #logo {
+            height: 80px;
+        }
+
+        ul {
+            list-style-type: none;
+            display: flex;
+        }
+
+        ul li a {
+            text-decoration: none;
+            color: whitesmoke;
+            margin-left: 25px;
+        }
+        ul li a:hover {
+            color: black;
+            font-weight: bold;
+        }
+
+        .Hero-section {
+            background-image: url(./images/school.jpg);
+            background-repeat: no-repeat;
+            background-size: 100%;
+            height: 560px;
+        }
+
+        .Hero-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: whitesmoke;
+            text-shadow: whitesmoke;
+            flex-direction: column;
+        }
+
+        .Hero-section h1 {
+                font-weight: 100px;
+                line-height: 20px;
+        }
+
+        .Hero-section p {
+                font-weight: 50px;
+                line-height: 20px;
+        }
+
+        .banner h1 {
+            font-size: 70px;
+            font-family: 'Merriweather', serif;
+            padding: 30px;
+            text-shadow: 2px 2px 8px #FF0000;
+        }
+
+        .banner p {
+            font-size: 25px;
+            font-family: 'PT Serif', serif;
+            text-shadow: 2px 2px 8px #FF0000;
+        }
+        /*----- Pop-Out btn -----*/
+        .openBtn {
+            display: flex;
+            justify-content: left;
+        }
+
+        .openButton {
+            border: none;
+            border-radius: 5px;
+            background-color: #1c87c9;
+            color: white;
+            padding: 14px 20px;
+            cursor: pointer;
+            position: fixed;
+        }
+
+        .loginPopup {
+            position: relative;
+            text-align: center;
+            width: 100%;
+        }
+
+        .formPopup {
+            display: none;
+            position: fixed;
+            left: 75%;
+            top: 5%;
+            transform: translate(-50%, 5%);
+            border: 3px solid #999999;
+            z-index: 9;
+        }
+
+        .formContainer {
+            max-width: 300px;
+            padding: 20px;
+            background-color: #fff;
+        }
+
+            .formContainer input[type=text],
+            .formContainer input[type=password] {
+                width: 100%;
+                padding: 15px;
+                margin: 5px 0 20px 0;
+                border: none;
+                background: #eee;
+            }
+
+                .formContainer input[type=text]:focus,
+                .formContainer input[type=password]:focus {
+                    background-color: #ddd;
+                    outline: none;
+                }
+
+            .formContainer .btn {
+                padding: 12px 20px;
+                border: none;
+                background-color: rgb(199, 43, 43);
+                color: #fff;
+                cursor: pointer;
+                width: 100%;
+                margin-bottom: 15px;
+                opacity: 0.8;
+            }
+
+            .formContainer .cancel {
+                background-color: red;
+            }
+
+            .formContainer .btn:hover,
+            .openButton:hover {
+                opacity: 1;
+            }
+        /*----- End of Pop out btn-----*/
+
+     
+    </style>
+</head>
+<body>
+        <nav>
+            <ul>
+              <li class="logo">Springdale Primary School</li>
+             <li class="btn"><span class="fas fa-bars" aria-hidden="false"></span></li>
+              <div class="items">
+                <ul>
+                  <div class="nav-bar">
+                    <div id="logo"><img src="./images/logo.png" alt="logo" style="height: 50px;z-index: 1;"></div>
+                    <ul>
+                    
+                        <li><a href="about.html">ABOUT US</a></li>
+                        <li><a href="contact.html">COUNTACT</a></li>
+                        <li><a href="curriculum.html">CURRICULUM</a></li>
+                        <li><a id="Button" href="#" onclick="openForm()">LOG IN</a></li>
+                        <li><a href="Maze_game.html">GAME</a></li>
+                 
+           
+              </ul>
+              </div>
+              <li class="search-icon">
+                <input type="search" placeholder="search"> 
+               <label class="icon">
+               </label>
+              </li>
+            </ul>
+          </nav>
+    <!--Login form section-->
+    <div class="loginPopup">
+        <div class="formPopup" id="popupForm">
+            <form name="popupForm" action="curriculum.html" class="formContainer" onSubmit="return validateForm();" method="post">
+                <h2>Please Log in</h2>
+                <label for="email">
+                    <strong>Username</strong>
+                </label>
+                <input type="text" id="email" placeholder="Your Username" name="email">
+                <label for="psw">
+                    <strong>Password</strong>
+                </label>
+                <input type="password" id="psw" placeholder="Your Password" name="psw">
+                <button type="submit" class="btn">Log in</button>
+                <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        function validateForm() {
+            var username = document.popupForm.email.value;
+            var password = document.popupForm.psw.value;
+            
+            if (username.length == 0 && password.length != 0)//if the username is not entered 
+            {
+                alert("Login was unsuccessful, please enter your username");
+                return false;
+            }
+            if (password.length == 0 && username.length != 0)//if the password is not entered 
+            {
+                alert("Login was unsuccessful, please enter your password");
+                return false;
+            }
+            if (username.length == 0 && password.length == 0)//if both password & username are not entered 
+            {
+                alert("Login was unsuccessful, please enter your username and Password");
+                return false;
+            }
+            if (username.length != 6)//if username do not contain 6 characters 
+            {
+                alert("Login was unsuccessful, username must contain 6 characters");
+                return false;
+            }
+            if (password.length != 6)//if password do not contain 6 characters 
+            {
+                alert("Login was unsuccessful, password must contain 6 characters");
+                return false;
+            }
+            if (isNaN(username) && username.length == 6)//if username do not contain numeric values only
+            {
+                alert("Login was unsuccessful, please enter username that contains numeric values only");
+                return false;
+            }
+            if (password.length< 4)//if password contains less than 4 characters
+            {
+                alert("Login was unsuccessfully, please enter password that contains at least 4 characters");
+                return false;
+            }
+        
+            //if (!(/^[0-9a-zA-Z\s]+/i.test(username)) && username.length != 0 )//if username do not contain numeric values only
+            //{
+            //    alert("Login was unsuccessful, please enter username that contains numeric values only");
+            //    return false;
+            //}
+            else {
+                alert("you have logged in Successfully!");
+                return true;
+            }
+        }
+    </script>
+    <!--End of Login form section-->
+
+    <section class="Hero-section">
+        <div class="banner">
+            <h1>EVOLVING<br><br><br>EDUCATION</h1>
+            <p>THE FUTURE BELONGS TO THOSE WHO BELIEVE IN THEIR DREAMS.</p>
+        </div>
+    </section>
+
+    <!----- FOOTER ----->
+
+    <div class="footer">
+        <div class="inner-footer">
+          <div class="footer-items">
+            <h1>Springdale Primary School</h1>
+            <footer>
+              <div class="image">
+                  <img src="images/wced.png" style="height: 79px";>
+              </div>
+      
+          </div>
+          
+          <div class="footer-items">
+            <h2>Quick Links</h2>
+            <div class="border"></div>
+           <ul>
+             <a href="#"><li>Home</li></a>
+             <a href="#"><li>About Us</li></a>
+             <a href="#"><li>Countact</li></a>
+             <a href="#"><li>Curriculum</li></a>
+             <a href="#"><li>Game</li></a>
+           </ul>
+          </div>
+          <div class="footer-items">
+            <h2>Grasde's</h2>
+            <div class="border"></div>
+           <ul>
+             <a href="#"><li>Grade 1</li></a>
+             <a href="#"><li>Grade 2</li></a>
+             <a href="#"><li>Grade 3</li></a>
+             <a href="#"><li>Grade 4</li></a>
+             <a href="#"><li>Grade 5</li></a>
+           </ul>
+          </div>
+          <div class="footer-items">
+            <h2>Contact Us</h2>
+            <div class="border"></div><br>
+           <ul>
+            <a href="https://satellites.pro/Khayelitsha_map"><i class="fa fa-map-marker" aria-hidden="false"></i>B1034A, Ngwenye Street, Site C</i><br><br>
+            <i class="fa fa-phone" aria-hidden="false"></i>0822241337</i><br><br>
+            <i class="fa fa-envelope" aria-hidden="false"></i>support@mbongenismith.com</i><br><br>
+
+          </ul>
+          <div class="social-media">
+            <a href=""><i class="fa fa-facebook" aria-hidden="false"></i></i></a>
+            <a href=""><i class="fa fa-twitter" aria-hidden="false"></i></i></a>
+            <a href=""><i class="fa fa-instagram" aria-hidden="false"></i></i></a>
+            <a href=""><i class="fa fa-google-plus" aria-hidden="false"></i></i></a>
+          </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          copyright &copy; Mbongeni Smith 2020. All rights reserved.
+        </div>
+      </div>
+
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip();
+        });
+
+        function openForm() {
+            document.getElementById("popupForm").style.display = "block";
+        }
+        function closeForm() {
+            document.getElementById("popupForm").style.display = "none";
+        }
+    </script>
+</body>
+</html>
+

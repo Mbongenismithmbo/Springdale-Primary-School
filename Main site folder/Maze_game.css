@@ -1,0 +1,213 @@
+body {
+    font-family: Calibri;
+    transition: 0.2s ease;
+    text-align: center;
+    background-color: rgb(226, 65, 65);
+    transition: 0.2s ease;
+}
+
+
+h1 {
+    color: white;
+    font-size: 50px;
+}
+.game-container {
+    margin-top: 70px;
+}
+/***** MAP SCREEN *****/
+
+.game-map {
+    position: relative;
+}
+/**** OUTPUT TEXT STYLES *****/
+.instructions {
+    color: white;
+    display: flex;
+    justify-content: flex-end;
+
+}
+/**** Collapsible button *****/
+
+
+.collapsible {
+    background-color: white;
+    color: rgb(199, 43, 43);;
+    cursor: pointer;
+    padding: 16px;
+    width: 67px;
+    height: 60px;
+    border: none;
+    text-align: left;
+    outline: none;
+    font-size: 15px;
+    position: fixed;
+    left: 0;
+  }
+  
+  .active, .collapsible:hover {
+    background-color: rgb(99, 240, 71);
+  }
+  .help-button{
+      display: flex;
+      justify-content: flex-start;
+  }
+
+.content {
+    padding: 0 18px;
+    display: none;
+    overflow: hidden; 
+}
+.content p {
+    color: white;
+    font-weight: 400;
+        margin-left: 50px;
+        margin-top: 0px;
+    
+}
+/***** MAP ON LEFT, CONTROLS ON RIGHT * ADAPTED FOR MOBILE MEDIUM APP *****/
+
+#map-and-controls {
+    display: flex;
+    justify-content: center;
+}
+#controls {
+    margin-left: 0px;
+    text-align: center;
+}
+#controls #horiz {
+    display: flex;
+    justify-content:center;
+    border-radius: 12px;
+}
+#controls button {
+    padding: 10px 10px;
+    margin-top: 10px;
+    cursor: pointer;
+    position: relative;
+}
+button#right {
+    margin-left: 5px;
+    border-radius: 12px;
+}
+button#left {
+    margin-right: 5px;
+    border-radius: 12px;
+}
+
+#controls button::before {
+    content:'';
+    width: 0px;
+    position: absolute;
+}
+button#left::before {
+    left: 10px;
+    top: 9px;
+}
+button#right::before {
+    left: 12px;
+    top: 9px;
+}
+button#up::before {
+    left: 9px;
+    top: 9px;
+}
+button#down::before {
+    left: 9px;
+    top: 12px;
+    border-radius: 12px;
+}
+#success-msg {
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    position: absolute;
+    padding: 5px 5px;
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    width: calc(100% - 8px);
+}
+body.success #success-msg {
+    opacity: 1;
+    transition: opacity 0.2 ease;
+}
+/***** LAYERS AND TILES ARE POSITIONED ABSOLUTELTY * WITHIN COORDINATE SYSTEM OF .GAME-MAP *****/
+
+div.layer, div.layer div {
+  position: absolute;
+}
+/***** BORDER FOR FLOORS AND WALL *****/
+
+#tiles div {
+  border: 1px solid grey;
+}
+
+/***** DEFAULT WALL AND FLOOR STYLES *****/
+
+.default .floor {
+    background-color: rgb(255, 255, 255);
+}
+.default .wall {
+    background-color: skyblue;
+}
+
+/***** GRASLAND THEME *****/
+
+.grassland .floor {
+    background-color: #ffffff;
+}
+.grassland .wall {
+    background-color: #580ba0;
+}
+.grassland #player {
+   background-color: #b2ccec;
+}
+
+/***** DUNGEON THEME *****/
+
+.dungeon .floor {
+    background-color: rgb(255, 255, 255);
+}
+.dungeon .wall {
+    background-color: #1715b6;
+}
+.dungeon #player {
+   background-color: #0bb13d;
+}
+/***** PLAYER AND GOAL ARE SLIGHTLY SMALLER THAN TILES *****/
+
+.player, .goal {
+    transform-origin: center;
+    transform:scale(0.85);
+} 
+/*****  GOAL COLORS *****/
+  
+.goal {
+    background-color: rgb(153, 17, 17);
+} 
+/***** PLAYER DEFAULT COLORS *****/
+  
+.player {
+    background-color: rgb(99, 240, 71);
+    transition: left 0.2s ease, top 0.2s ease;
+}
+/***** PLAYER WOBBLES WHEN COLLIDING WITH WALL OR BORDER *****/
+
+.player.collide {  
+    animation: wobble 0.5s;
+    animation-iteration-count: infinite;
+    transition: background-color 0.2s;
+}
+/*****  WOBBLE ANIMATION *****/
+
+@keyframes wobble {
+    0% { transform: scale(0.85) translate(1px, 1px); }
+    10% { transform: scale(0.85) translate(-1px, -2px); }
+    20% { transform: scale(0.85) translate(-3px, 0px); }
+    30% { transform: scale(0.85) translate(3px, 2px); }
+    40% { transform: scale(0.85) translate(1px, -1px);}
+    50% { transform: scale(0.85) translate(-1px, 2px); }
+    60% { transform: scale(0.85) translate(-3px, 1px); }
+    70% { transform: scale(0.85) translate(3px, 1px); }
+    80% { transform: scale(0.85) translate(-1px, -1px); }
+    90% { transform: scale(0.85) translate(1px, 2px); }
+    100% { transform: scale(0.85) translate(1px, -2px);; }
+}
